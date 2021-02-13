@@ -6,7 +6,7 @@ GO
 --- TẠO BẢNG ---
 CREATE TABLE NHANVIEN
 (
-	TaiKhoan VARCHAR(MAX) PRIMARY KEY,
+	TaiKhoan VARCHAR(200) PRIMARY KEY,
 	MatKhau VARCHAR(MAX),
 	TenNV NVARCHAR(MAX),
 	Quyen BIT
@@ -60,9 +60,9 @@ CREATE TABLE CTHD
 )
 
 --- NHẬP LIỆU ---
-INSERT INTO NHANVIEN VALUES('admin','123',N'Admin',1)
-INSERT INTO NHANVIEN VALUES('phuonguyen','123',N'Phương Uyên',1)
-INSERT INTO NHANVIEN VALUES('koco','123',N'Không có',0)
+INSERT INTO NHANVIEN VALUES('admin','202cb962ac59075b964b07152d234b70',N'Admin',1)
+INSERT INTO NHANVIEN VALUES('phuonguyen','202cb962ac59075b964b07152d234b70',N'Phương Uyên',1)
+INSERT INTO NHANVIEN VALUES('koco','202cb962ac59075b964b07152d234b70',N'Không có',0)
 
 INSERT INTO LOAISP VALUES(N'Trang điểm','trangdiem.jpg')
 INSERT INTO LOAISP VALUES(N'Dưỡng da','duongda.jpg')
@@ -90,3 +90,11 @@ Bước 5: Sau khi rửa sạch da bằng nước ấm, thoa toner lên da và d
 Sau khi loại bỏ các chất bẩn gây hại trên da với Mặt Nạ Thải Độc Giúp Da Hấp Thụ Derm All Matrix Epidermal Detoxifying Mask, làn da của bạn được thông thoáng và có thể hấp thụ các dưỡng chất nhanh chóng và hiệu quả hơn. Vì thế, khi bạn tiếp tục sử dụng Mặt Nạ Dưỡng Da Derm All Matrix Facial Dermal Care Mask trong khi ngủ, hàng rào bảo vệ da sẽ được tăng cường hơn nhiều lần.<br/>
 Để mang lại hiệu quả dưỡng da tốt nhất, mỗi tuần bạn nên dùng mặt nạ Facial Dermal Care Mask 3 lần và Epidermal Detoxifying Mask 1 lần trong vòng 8 tuần liên tục. Bạn sẽ cảm nhận được sự khác biệt trên làn da của mình.',N'Cái')
 INSERT INTO SANPHAM VALUES(N'Son môi ROMAND',140,)
+
+--- CÂU LỆNH ---
+SELECT * FROM NHANVIEN
+SELECT * FROM KHACHHANG
+SELECT * FROM SANPHAM
+SELECT * FROM LOAISP
+SELECT * FROM HOADON
+SELECT * FROM CTHD
