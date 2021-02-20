@@ -1,15 +1,17 @@
-﻿@{
-    ViewBag.Title = "Quản lý loại sản phẩm";
+﻿
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<WebAdmin.Models.LOAISP>
+
+@model IEnumerable<WebAdmin.Models.SANPHAM>
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
 
             <h5 class="card-header">
-                <font style="font-size:25px">QUẢN LÝ LOẠI SẢN PHẨM</font>
-                <a href="@Url.Action("TaoMoiLoaiSP")" class="btn btn-primary waves-effect waves-light" style="float:right">Tạo mới</a>
+                <font style="font-size:25px">QUẢN LÝ SẢN PHẨM</font>
+                <a href="@Url.Action("TaoMoiSanPham")" class="btn btn-primary waves-effect waves-light" style="float:right">Tạo mới</a>
             </h5>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,13 +28,13 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.MaLoaiSP</td>
-                                    <td>@item.TenLoaiSP</td>
-                                    <td><img src="~/Content/Images/LoaiSP/@item.HinhAnh" /></td>
+                                    <td>@item.MaSP</td>
+                                    <td>@item.TenSP</td>
+                                    <td><img src="" /></td>
                                     <td>
-                                        <a href="@Url.Action("SuaLoaiSP",new { id=item.MaLoaiSP})" class="btn btn-success">Edit</a>
-                                        <a href="@Url.Action("ChiTietLoaiSP",new { id=item.MaLoaiSP})" class="btn btn-secondary">Detail</a>
-                                        <a href="@Url.Action("XoaLoaiSP",new { id=item.MaLoaiSP})" class="btn btn-brand">Delete</a>
+                                        <a href="@Url.Action("SuaSanPham",new { id=item.MaSP})" class="btn btn-success">Edit</a>
+                                        <a href="@Url.Action("ChiTietSanPham",new { id=item.MaSP})" class="btn btn-secondary">Detail</a>
+                                        <a href="@Url.Action("XoaSanPham",new { id=item.MaSP})" class="btn btn-brand">Delete</a>
                                     </td>
                                 </tr>
                             }

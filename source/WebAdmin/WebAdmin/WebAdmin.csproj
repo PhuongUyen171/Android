@@ -122,9 +122,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -529,6 +531,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\LoaiSP\dm1.png" />
+    <Content Include="Content\Images\LoaiSP\dm2.png" />
+    <Content Include="Content\Images\LoaiSP\dm3.png" />
+    <Content Include="Content\Images\LoaiSP\dm4.png" />
+    <Content Include="Content\Images\SanPham\sp1.jpg" />
+    <Content Include="Content\Images\SanPham\sp2.jpg" />
+    <Content Include="Content\Images\SanPham\sp3.jpg" />
+    <Content Include="Content\Images\SanPham\sp4.jpg" />
+    <Content Include="Content\Images\SanPham\sp5.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -610,8 +621,10 @@
     <Content Include="Views\LoaiSP\SuaLoaiSP.cshtml" />
     <Content Include="Views\LoaiSP\ChiTietLoaiSP.cshtml" />
     <Content Include="Views\LoaiSP\TaoMoiLoaiSP.cshtml" />
+    <Content Include="Views\KhachHang\Index.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

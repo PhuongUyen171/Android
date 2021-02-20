@@ -64,10 +64,10 @@ INSERT INTO NHANVIEN VALUES('admin','202cb962ac59075b964b07152d234b70',N'Admin',
 INSERT INTO NHANVIEN VALUES('phuonguyen','202cb962ac59075b964b07152d234b70',N'Phương Uyên',1)
 INSERT INTO NHANVIEN VALUES('koco','202cb962ac59075b964b07152d234b70',N'Không có',0)
 
-INSERT INTO LOAISP VALUES(N'Trang điểm','trangdiem.jpg')
-INSERT INTO LOAISP VALUES(N'Dưỡng da','duongda.jpg')
-INSERT INTO LOAISP VALUES(N'Dưỡng thể','duongthe.jpg')
-INSERT INTO LOAISP VALUES(N'Thực phẩm','thucpham.jpg')
+INSERT INTO LOAISP VALUES(N'Trang điểm','dm3.png')
+INSERT INTO LOAISP VALUES(N'Dưỡng da','dm2.png')
+INSERT INTO LOAISP VALUES(N'Dưỡng thể','dm4.png')
+INSERT INTO LOAISP VALUES(N'Thực phẩm','dm1.png')
 
 INSERT INTO KHACHHANG VALUES(N'Xuân Nhật','xuannhat2352@gmail.com','123','0961122501',N'72 Dương Đức Hiền')
 INSERT INTO KHACHHANG VALUES(N'Phương Anh','phuonganh@gmail.com','123','0916272248',N'817 Lạc Long Quân')
