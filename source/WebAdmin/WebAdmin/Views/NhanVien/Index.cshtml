@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<WebAdmin.Models.NHANVIEN>
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+
+            <h5 class="card-header">
+                <font style="font-size:25px">QUẢN LÝ NHÂN VIÊN</font>
+                <a href="@Url.Action("TaoMoiNhanVien")" class="btn btn-primary waves-effect waves-light" style="float:right">Tạo mới</a>
+            </h5>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered first">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Fullname</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.TaiKhoan</td>
+                                    <td>@item.TenNV</td>
+                                    <td>
+                                        @if (item.Quyen == true)
+                                        {
+                                            <a href="@Url.Action("ChangeStatus","NhanVien",new { id = item.TaiKhoan })" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("ChangeStatus","NhanVien",new { id = item.TaiKhoan })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("SuaNhanVien",new { id=item.TaiKhoan})" class="btn btn-success">Edit</a>
+                                        <a href="@Url.Action("ChiTietNhanVien",new { id=item.TaiKhoan})" class="btn btn-secondary">Detail</a>
+                                        <a href="@Url.Action("XoaNhanVien",new { id=item.TaiKhoan})" class="btn btn-brand">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

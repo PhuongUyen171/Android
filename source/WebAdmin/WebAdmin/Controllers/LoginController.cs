@@ -11,25 +11,56 @@ namespace WebAdmin.Controllers
     {
         ShopMyPhamDataContext db = new ShopMyPhamDataContext();
         // GET: Login
-        public ActionResult Index()
+        public ActionResult Index(string user)
         {
-            return View();
+            try
+            {
+                NHANVIEN nv = KiemTraKhoaChinh(user);
+                return View(nv);
+            }
+            catch (Exception)
+            {
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult Index(NHANVIEN model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    bool result = SuaNhanVien(model);
+                    if (result)
+                        TempData["SuccessMessage"] = "Chỉnh sửa thông tin thành công.";
+                    else
+                        TempData["DangerMessage"] = "Chỉnh sửa thông tin thất bại.";
+                }
+                else
+                    TempData["DangerMessage"] = "Thiếu thông tin";
+                return View(model);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
         public ActionResult Login()
         {
             try
             {
-                NHANVIEN model = KiemTraTaiKhoan();
-                if (model == null)
+                NHANVIEN nv = KiemTraTaiKhoanCookies();
+                if (nv == null)
                     return View();
                 else
                 {
                     //Save token API
-                    Session["ADMIN_SESSION"] = model;
+                    Session["ADMIN_SESSION"] = nv;
                     //string tokenUser = GetToken(model.TaiKhoan);
                     //HttpCookie cookie = new HttpCookie("TOKEN_NUMBER", tokenUser);
                     //Response.Cookies.Add(cookie);
-                    return RedirectToAction("Login", "Login", new { model = model.TaiKhoan });
+                    return RedirectToAction("Login", "Login", new { model = nv });
                 }
             }
             catch (Exception)
@@ -70,7 +101,7 @@ namespace WebAdmin.Controllers
                                     ckName.Value = model.MatKhau;
                                     Response.Cookies.Add(ckName);
                                 }
-                                return RedirectToAction("Index", "Home", new { user = adSession.TaiKhoan, pass = adSession.MatKhau });
+                                return RedirectToAction("Index", "Login", new { user = adSession.TaiKhoan });
                             }
                         case 0:
                             TempData["DangerMessage"] = "Tài khoản không tồn tại.";
@@ -126,7 +157,7 @@ namespace WebAdmin.Controllers
         }
 
         #region Lấy thông tin tài khoản admin
-        public NHANVIEN KiemTraTaiKhoan()
+        public NHANVIEN KiemTraTaiKhoanCookies()
         {
             NHANVIEN nv = null;
             string username = string.Empty;
@@ -155,6 +186,32 @@ namespace WebAdmin.Controllers
             else
                 return 3;
         }
+        public NHANVIEN KiemTraKhoaChinh(string username)
+        {
+            NHANVIEN nv = db.NHANVIENs.FirstOrDefault(t => t.TaiKhoan == username);
+            return nv;
+        }
+
         #endregion
+        public bool SuaNhanVien(NHANVIEN model)
+        {
+            try
+            {
+                var nv = KiemTraKhoaChinh(model.TaiKhoan);
+                if (nv != null)
+                {
+                    nv.TenNV = model.TenNV;
+                    nv.MatKhau = Encryptor.MD5Hash(model.MatKhau);
+                    nv.Quyen = model.Quyen;
+                    db.SubmitChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

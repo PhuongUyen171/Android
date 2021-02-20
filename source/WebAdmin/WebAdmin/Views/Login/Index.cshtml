@@ -1,0 +1,108 @@
+﻿@model WebAdmin.Models.NHANVIEN
+@{
+    ViewBag.Title = "Profile admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <div class="influence-profile" style="font-family:'Times New Roman', Times, serif">
+        <div class="container-fluid dashboard-content ">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h3 class="mb-2">Influencer Profile </h3>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="user-avatar text-center d-block">
+                                <img src="~/Content/Images/hinhUyen2.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                            </div>
+                            <div class="text-center">
+                                <h2 class="font-24 mb-0" style="font-family:'Times New Roman', Times, serif">@Model.TenNV</h2>
+                                <p>Project Manager</p>
+                            </div>
+                        </div>
+                        <div class="card-body border-top">
+                            <h3 class="font-16">Contact Information</h3>
+                            <div class="">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="fas fa-fw fa-envelope mr-2"></i>@Model.TaiKhoan</li>
+                                    <li class="mb-0"><i class="fas fa-fw fa-phone mr-2"></i>0909111222</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body border-top">
+                            <h3 class="font-16">Social Channels</h3>
+                            <div class="">
+                                <ul class="mb-0 list-unstyled">
+                                    <li class="mb-1"><a href="#"><i class="fab fa-fw fa-facebook-square mr-1 facebook-color"></i>fb.me/@Model.TaiKhoan</a></li>
+                                    <li class="mb-1"><a href="#"><i class="fab fa-fw fa-twitter-square mr-1 twitter-color"></i>twitter.com/@Model.TaiKhoan</a></li>
+                                    <li class="mb-1"><a href="#"><i class="fab fa-fw fa-instagram mr-1 instagram-color"></i>instagram.com/@Model.TaiKhoan</a></li>
+                                    <li class="mb-1"><a href="#"><i class="fas fa-fw fa-rss-square mr-1 rss-color"></i>@Model.TaiKhoan/blog</a></li>
+                                    <li class="mb-1"><a href="#"><i class="fab fa-fw fa-pinterest-square mr-1 pinterest-color"></i>pinterest.com/@Model.TaiKhoan</a></li>
+                                    <li class="mb-1"><a href="#"><i class="fab fa-fw fa-youtube mr-1 youtube-color"></i>youtube/@Model.TaiKhoan</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">INFORMATION</h5>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+
+                                    <div class="offset-xl-3 col-xl-6 offset-lg-3 col-lg-3 col-md-12 col-sm-12 col-12 p-4">
+                                        <div class="form-group">
+                                            <label for="name">Your Name</label>
+                                            @Html.TextBoxFor(Model => Model.TenNV, new { @class = "form-control form-control-lg" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Your Email</label>
+                                            @Html.TextBoxFor(Model => Model.TaiKhoan, new { @class = "form-control form-control-lg" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Password</label>
+                                            @Html.PasswordFor(Model => Model.MatKhau, new { @class = "form-control form-control-lg" })
+                                        </div>
+                                        @*<div class="form-group">
+            <label for="subject">Address</label>
+            @Html.TextBoxFor(Model => Model.Location, new { @class = "form-control form-control-lg" })
+        </div>
+        <div class="form-group">
+            <label for="subject">Identity card</label>
+            @Html.TextBoxFor(Model => Model.IdentityCard, new { @class = "form-control form-control-lg" })
+        </div>
+        <div class="form-group">
+            <label for="subject">Phone</label>
+            @Html.TextBoxFor(Model => Model.Phone, new { @class = "form-control form-control-lg" })
+        </div>
+        @Html.HiddenFor(Model => Model.EmployID)
+        @Html.HiddenFor(Model => Model.GroupID)
+        @Html.HiddenFor(Model => Model.Pass)
+        @Html.HiddenFor(Model => Model.Statu)*@
+                                        @*<div class="form-group">
+            <label for="messages">Messgaes</label>
+            <textarea class="form-control" id="messages" rows="3"></textarea>
+        </div>*@
+                                        <button type="submit" class="btn btn-primary float-right">Update profile</button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
