@@ -80,9 +80,9 @@ namespace WebAdmin.Controllers
             if (ModelState.IsValid)
             {
                 if (CreateNhanVien(model))
-                    TempData["SuccessMessage"] = "Tạo mới thông tin thành công";
+                    TempData["SuccessMessage"] = "Tạo mới nhân viên thành công";
                 else
-                    TempData["DangerMessage"] = "Tạo mới thông tin thất bại";
+                    TempData["DangerMessage"] = "Tạo mới nhân viên thất bại";
                 return RedirectToAction("Index");
 
             }
@@ -127,6 +127,8 @@ namespace WebAdmin.Controllers
         {
             try
             {
+                model.Quyen = true;
+                model.MatKhau = Encryptor.MD5Hash(model.MatKhau);
                 db.NHANVIENs.InsertOnSubmit(model);
                 db.SubmitChanges();
                 return true;

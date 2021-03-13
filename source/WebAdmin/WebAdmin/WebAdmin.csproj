@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Encryptor.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NHANVIEN.cs" />
     <Compile Include="Models\ShopMyPham.designer.cs">
       <AutoGen>True</AutoGen>
@@ -625,6 +626,9 @@
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\NhanVien\TaoMoiNhanVien.cshtml" />
+    <Content Include="Views\NhanVien\SuaNhanVien.cshtml" />
+    <Content Include="Views\NhanVien\ChiTietNhanVien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

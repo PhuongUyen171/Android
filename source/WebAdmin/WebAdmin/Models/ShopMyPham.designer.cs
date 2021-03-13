@@ -1351,7 +1351,7 @@ namespace WebAdmin.Models
 		
 		private string _TenNV;
 		
-		private System.Nullable<bool> _Quyen;
+		private bool _Quyen;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1363,7 +1363,7 @@ namespace WebAdmin.Models
     partial void OnMatKhauChanged();
     partial void OnTenNVChanging(string value);
     partial void OnTenNVChanged();
-    partial void OnQuyenChanging(System.Nullable<bool> value);
+    partial void OnQuyenChanging(bool value);
     partial void OnQuyenChanged();
     #endregion
 		
@@ -1432,8 +1432,8 @@ namespace WebAdmin.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quyen", DbType="Bit")]
-		public System.Nullable<bool> Quyen
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quyen", DbType="Bit NOT NULL")]
+		public bool Quyen
 		{
 			get
 			{

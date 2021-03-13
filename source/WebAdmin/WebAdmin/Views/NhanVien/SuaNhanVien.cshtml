@@ -1,0 +1,59 @@
+﻿@model WebAdmin.Models.NHANVIEN
+@{
+    ViewBag.Title = "chỉnh sửa thông tin nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>CHỈNH SỬA NHÂN VIÊN</h2>
+
+@using (Html.BeginForm("SuaNhanVien", "NhanVien", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @*@Html.HiddenFor(model => model.MaLoaiSP)*@
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="review-content-section">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="devit-card-custom">
+                            <div class="form-group">
+                                Tài khoản:
+                                @Html.TextBoxFor(model => model.TaiKhoan, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Tên nhân viên:
+                                @Html.TextBoxFor(model => model.TenNV, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.TenNV, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Mật khẩu:
+                                @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Quyền:
+                                @if (Model.Quyen == true)
+                                {
+                                    <a href="@Url.Action("ChangeStatus","NhanVien",new { id = Model.TaiKhoan })" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ChangeStatus","NhanVien",new { id = Model.TaiKhoan })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                                }
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
+                            <div class="warning">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "list-style-type:none;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

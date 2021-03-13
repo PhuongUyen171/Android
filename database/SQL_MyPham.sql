@@ -1,15 +1,17 @@
 ﻿CREATE DATABASE MYPHAM
 
+DROP DATABASE MYPHAM
+
 USE MYPHAM
 GO
-
+ 
 --- TẠO BẢNG ---
 CREATE TABLE NHANVIEN
 (
 	TaiKhoan VARCHAR(200) PRIMARY KEY,
 	MatKhau VARCHAR(MAX),
 	TenNV NVARCHAR(MAX),
-	Quyen BIT
+	Quyen BIT NOT NULL
 )
 CREATE TABLE LOAISP
 (
@@ -89,7 +91,7 @@ Bước 4: Lấy mặt nạ ra sau 15 phút, massage nhẹ nhàng để dưỡng
 Bước 5: Sau khi rửa sạch da bằng nước ấm, thoa toner lên da và dưỡng ẩm với mặt nạ Derm All Matrix Facial Dermal Care Mask.<br/>
 Sau khi loại bỏ các chất bẩn gây hại trên da với Mặt Nạ Thải Độc Giúp Da Hấp Thụ Derm All Matrix Epidermal Detoxifying Mask, làn da của bạn được thông thoáng và có thể hấp thụ các dưỡng chất nhanh chóng và hiệu quả hơn. Vì thế, khi bạn tiếp tục sử dụng Mặt Nạ Dưỡng Da Derm All Matrix Facial Dermal Care Mask trong khi ngủ, hàng rào bảo vệ da sẽ được tăng cường hơn nhiều lần.<br/>
 Để mang lại hiệu quả dưỡng da tốt nhất, mỗi tuần bạn nên dùng mặt nạ Facial Dermal Care Mask 3 lần và Epidermal Detoxifying Mask 1 lần trong vòng 8 tuần liên tục. Bạn sẽ cảm nhận được sự khác biệt trên làn da của mình.',N'Cái')
-INSERT INTO SANPHAM VALUES(N'Son môi ROMAND',140,)
+ INSERT INTO SANPHAM VALUES(N'Son môi ROMAND',140,)
 
 --- CÂU LỆNH ---
 SELECT * FROM NHANVIEN
