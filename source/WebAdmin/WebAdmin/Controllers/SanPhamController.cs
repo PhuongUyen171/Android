@@ -10,6 +10,7 @@ namespace WebAdmin.Controllers
     public class SanPhamController : Controller
     {
         ShopMyPhamDataContext db = new ShopMyPhamDataContext();
+
         public ActionResult Index()
         {
             try
@@ -20,6 +21,27 @@ namespace WebAdmin.Controllers
             catch (Exception)
             {
                 throw;
+            }
+        }
+        public ActionResult ChangeStatus(int id)
+        {
+            try
+            {
+                SANPHAM nv = db.SANPHAMs.FirstOrDefault(t => t.MaSP == id);
+                if (nv != null)
+                {
+                    nv.TrangThai = !nv.TrangThai;
+                    db.SubmitChanges();
+                    TempData["SuccessMessage"] = "Đổi quyền truy cập nhân viên thành công.";
+                }
+                else
+                    TempData["DangerMessage"] = "Có lỗi xảy ra";
+                return RedirectToAction("Index", "SanPham");
+            }
+            catch (Exception)
+            {
+                TempData["DangerMessage"] = "Có lỗi xảy ra";
+                return RedirectToAction("Index", "SanPham");
             }
         }
         [HttpGet]

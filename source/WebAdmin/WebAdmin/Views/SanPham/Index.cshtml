@@ -21,6 +21,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Images</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -30,7 +31,17 @@
                                 <tr>
                                     <td>@item.MaSP</td>
                                     <td>@item.TenSP</td>
-                                    <td><img src="" /></td>
+                                    <td><img src="~/Content/Images/SanPham/@item.HinhAnh" height="100"/></td>
+                                    <td>
+                                        @if (item.TrangThai == true)
+                                        {
+                                            <a href="@Url.Action("ChangeStatus","SanPham",new { id = item.MaSP })" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("ChangeStatus","SanPham",new { id = item.MaSP })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                                        }
+                                    </td>
                                     <td>
                                         <a href="@Url.Action("SuaSanPham",new { id=item.MaSP})" class="btn btn-success">Edit</a>
                                         <a href="@Url.Action("ChiTietSanPham",new { id=item.MaSP})" class="btn btn-secondary">Detail</a>

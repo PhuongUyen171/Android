@@ -623,12 +623,15 @@
     <Content Include="Views\LoaiSP\ChiTietLoaiSP.cshtml" />
     <Content Include="Views\LoaiSP\TaoMoiLoaiSP.cshtml" />
     <Content Include="Views\KhachHang\Index.cshtml" />
+    <Content Include="Views\KhachHang\TaoMoiKhachHang.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\NhanVien\TaoMoiNhanVien.cshtml" />
     <Content Include="Views\NhanVien\SuaNhanVien.cshtml" />
     <Content Include="Views\NhanVien\ChiTietNhanVien.cshtml" />
+    <Content Include="Views\SanPham\TaoMoiSanPham.cshtml" />
+    <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

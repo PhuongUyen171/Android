@@ -1,34 +1,33 @@
-﻿@model WebAdmin.Models.NHANVIEN
+﻿@model WebAdmin.Models.SANPHAM
 @{
-    ViewBag.Title = "Tạo mới nhân viên";
+    ViewBag.Title = "Tạo mới sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>TẠO MỚI NHÂN VIÊN</h2>
 
-@using (Html.BeginForm("TaoMoiNhanVien", "NhanVien", FormMethod.Post))
+<h2>TẠO MỚI SẢN PHẨM</h2>
+
+@using (Html.BeginForm("TaoMoiSanPham", "SanPham", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <hr />
+    @Html.HiddenFor(model=>model.MaSP)
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="review-content-section">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="devit-card-custom">
-                            <!--Tài khoản-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control", @placeholder = "Employee account" } })
-                                @Html.ValidationMessageFor(m => m.TaiKhoan, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product name" } })
+                                @Html.ValidationMessageFor(m => m.TenSP, "", new { @class = "text-danger" })
                             </div>
-                            <!--Tên nhân viên-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TenNV, new { htmlAttributes = new { @class = "form-control", @placeholder = "Employee name" } })
-                                @Html.ValidationMessageFor(m => m.TenNV, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product name" } })
+                                @Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })
                             </div>
-                            <!--Mật khẩu-->
                             <div class="form-group">
-                                @Html.PasswordFor(Model => Model.MatKhau, new { @class = "form-control", @placeholder = "Password" })
-                                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product information" } })
+                                @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
                             </div>
                             <!--Quyền-->
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
@@ -44,5 +43,4 @@
         </div>
     </div>
 }
-
 

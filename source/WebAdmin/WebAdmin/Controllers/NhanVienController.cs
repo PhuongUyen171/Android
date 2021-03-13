@@ -91,9 +91,9 @@ namespace WebAdmin.Controllers
         public ActionResult XoaNhanVien(string id)
         {
             if (DeleteNhanVien(id))
-                TempData["SuccessMessage"] = "Xóa thông tin thành công";
+                TempData["SuccessMessage"] = "Xóa nhân viên thành công";
             else
-                TempData["DangerMessage"] = "Xóa thông tin thất bại";
+                TempData["DangerMessage"] = "Xóa nhân viên thất bại";
             return RedirectToAction("Index");
         }
 
