@@ -1,0 +1,47 @@
+﻿@model WebAdmin.Models.KHACHHANG
+@{
+    ViewBag.Title = "Thông tin chi tiết khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT KHÁCH HÀNG</h2>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="review-content-section">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="devit-card-custom">
+                            <div class="form-group">
+                                Mã khách hàng:
+                                @Html.TextBoxFor(model => model.MaKH, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Tên khách hàng:
+                                @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Email:
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Điện thoại:
+                                @Html.TextBoxFor(model => model.SDT, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Địa chỉ:
+                                @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <a href="@Url.Action("SuaKhachHang", new { id=Model.MaKH})" class="btn btn-primary waves-effect waves-light">Edit</a>
+                            <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

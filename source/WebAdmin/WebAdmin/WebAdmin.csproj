@@ -624,6 +624,8 @@
     <Content Include="Views\LoaiSP\TaoMoiLoaiSP.cshtml" />
     <Content Include="Views\KhachHang\Index.cshtml" />
     <Content Include="Views\KhachHang\TaoMoiKhachHang.cshtml" />
+    <Content Include="Views\KhachHang\SuaKhachHang.cshtml" />
+    <Content Include="Views\KhachHang\ChiTietKhachHang.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
@@ -632,6 +634,7 @@
     <Content Include="Views\NhanVien\ChiTietNhanVien.cshtml" />
     <Content Include="Views\SanPham\TaoMoiSanPham.cshtml" />
     <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
+    <Content Include="Views\SanPham\SuaSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

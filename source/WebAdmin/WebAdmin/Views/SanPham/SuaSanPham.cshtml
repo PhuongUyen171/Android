@@ -1,0 +1,81 @@
+﻿@model WebAdmin.Models.SANPHAM
+@{
+    ViewBag.Title = "Chỉnh sửa sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>CHỈNH SỬA SẢN PHẨM</h2>
+
+@using (Html.BeginForm("SuaSanPham", "SanPham", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.HiddenFor(model => model.MaSP)
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="review-content-section">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="devit-card-custom">
+                            <div class="form-group">
+                                Mã sản phẩm:
+                                @Html.TextBoxFor(model => model.MaSP, new { @class = "form-control", @disabled = "disabled" })
+                            </div>
+                            <div class="form-group">
+                                Tên sản phẩm:
+                                @Html.TextBoxFor(model => model.TenSP, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.TenSP, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Giá bán:
+                                @Html.TextBoxFor(model => model.GiaBan, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.GiaBan, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Giá vốn:
+                                @Html.TextBoxFor(model => model.GiaVon, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.GiaVon, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Đơn vị tính:
+                                @Html.TextBoxFor(model => model.DonViTinh, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.DonViTinh, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Mã loại sản phẩm:
+                                @Html.TextBoxFor(model => model.MaLoai, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MaLoai, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Số lượng:
+                                @Html.TextBoxFor(model => model.SoLuong, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Mô tả:
+                                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Trạng thái:
+                                @if (Model.TrangThai == true)
+                                {
+                                    <a href="@Url.Action("ChangeStatus","SanPham",new { id = Model.MaSP})" class="btn btn-sm btn-success"><i class="fas fa-toggle-on"></i></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("ChangeStatus","SanPham",new { id = Model.MaSP })" class="btn btn-sm btn-danger"><i class="fas fa-toggle-off"></i></a>
+                                }
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
+                            <div class="warning">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "list-style-type:none;" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

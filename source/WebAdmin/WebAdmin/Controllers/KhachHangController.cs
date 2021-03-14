@@ -40,6 +40,40 @@ namespace WebAdmin.Controllers
             }
             return this.View();
         }
+        [HttpGet]
+        public ActionResult SuaKhachHang(int id)
+        {
+            KHACHHANG model = KiemTraKhoaChinh(id);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult SuaKhachHang(KHACHHANG model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool result = UpdateKhachHang(model);
+                if (result)
+                    TempData["SuccessMessage"] = "Chỉnh sửa thông tin khách hàng thành công";
+                else
+                    TempData["DangerMessage"] = "Chỉnh sửa thông tin khách hàng thất bại";
+                return RedirectToAction("Index");
+            }
+            return this.View();
+        }
+        public ActionResult ChiTietKhachHang(int id)
+        {
+            KHACHHANG model = KiemTraKhoaChinh(id);
+            //ViewBag.SoLuongNV = db.LOAISPs.Count();
+            return View(model);
+        }
+        public ActionResult XoaKhachHang(int id)
+        {
+            if (DeleteKhachHang(id))
+                TempData["SuccessMessage"] = "Xóa khách hàng thành công";
+            else
+                TempData["DangerMessage"] = "Xóa khách hàng thất bại";
+            return RedirectToAction("Index");
+        }
         #region Thêm, xóa, sửa khách hàng
         public KHACHHANG KiemTraKhoaChinh(int ma)
         {
