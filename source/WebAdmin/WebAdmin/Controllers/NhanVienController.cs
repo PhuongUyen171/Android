@@ -54,11 +54,15 @@ namespace WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(model.TenNV))
+                    ModelState.AddModelError("TenNV","Tên nhân viên không được để trống.");
+                if (string.IsNullOrEmpty(model.MatKhau))
+                    ModelState.AddModelError("MatKhau", "Mật khẩu không được để trống.");
                 bool result = UpdateNhanVien(model);
                 if (result)
-                    TempData["SuccessMessage"] = "Chỉnh sửa thông tin thành công";
+                    TempData["SuccessMessage"] = "Chỉnh sửa nhân viên thành công";
                 else
-                    TempData["DangerMessage"] = "Chỉnh sửa thông tin thất bại";
+                    TempData["DangerMessage"] = "Chỉnh sửa nhân viên thất bại";
                 return RedirectToAction("Index");
             }
             return this.View();
@@ -79,12 +83,21 @@ namespace WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Kiểm tra rỗng
+                if (string.IsNullOrEmpty(model.TaiKhoan))
+                    ModelState.AddModelError("TaiKhoan", "Tài khoản không được để trống.");                    
+                if (string.IsNullOrEmpty(model.TenNV))
+                    ModelState.AddModelError("TenNV", "Tên nhân viên không được để trống.");
+                if (string.IsNullOrEmpty(model.MatKhau))
+                    ModelState.AddModelError("MatKhau", "Mật khẩu không được để trống.");
+                //Tạo mới nhân viên
                 if (CreateNhanVien(model))
+                {
                     TempData["SuccessMessage"] = "Tạo mới nhân viên thành công";
+                    return RedirectToAction("Index");
+                }
                 else
                     TempData["DangerMessage"] = "Tạo mới nhân viên thất bại";
-                return RedirectToAction("Index");
-
             }
             return this.View();
         }
@@ -110,7 +123,7 @@ namespace WebAdmin.Controllers
                 NHANVIEN item = KiemTraKhoaChinh(model.TaiKhoan);
                 if (item != null)
                 {
-                    item.MatKhau = model.MatKhau;
+                    item.MatKhau = Encryptor.MD5Hash(model.MatKhau);
                     item.Quyen = model.Quyen;
                     item.TenNV = model.TenNV;
                     db.SubmitChanges();

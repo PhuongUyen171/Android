@@ -31,9 +31,9 @@ namespace WebAdmin.Controllers
                 {
                     bool result = SuaNhanVien(model);
                     if (result)
-                        TempData["SuccessMessage"] = "Chỉnh sửa thông tin thành công.";
+                        TempData["SuccessMessage"] = "Chỉnh sửa nhân viên thành công.";
                     else
-                        TempData["DangerMessage"] = "Chỉnh sửa thông tin thất bại.";
+                        TempData["DangerMessage"] = "Chỉnh sửa nhân viên thất bại.";
                 }
                 else
                     TempData["DangerMessage"] = "Thiếu thông tin";
@@ -157,7 +157,7 @@ namespace WebAdmin.Controllers
             }
         }
 
-        #region Lấy thông tin tài khoản admin
+        #region Lấy kiểm tra thông tin tài khoản admin
         public NHANVIEN KiemTraTaiKhoanCookies()
         {
             NHANVIEN nv = null;
@@ -193,6 +193,41 @@ namespace WebAdmin.Controllers
             return nv;
         }
 
+        #endregion
+
+        #region Đổi mật khẩu
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordModel model)
+        {
+            if (KiemTraKhoaChinh(model.Email) == null)
+            {
+                ModelState.AddModelError("Email", "Tài khoản chưa được đăng kí.");
+                return this.View();
+            }
+            return RedirectToAction("ResetPassword", new { account = model.Email });
+        }
+        public ActionResult ResetPassword(string account)
+        {
+            if (string.IsNullOrWhiteSpace(account))
+                return View("~/Views/Shared/404NotFound.cshtml");
+            NHANVIEN nv = KiemTraKhoaChinh(account);
+            ResetPasswordModel model = new ResetPasswordModel();
+            model.Mail = nv.TaiKhoan;
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPassword(ResetPasswordModel model)
+        {
+            NHANVIEN resultReset = KiemTraKhoaChinh(model.Mail);
+            resultReset.MatKhau = Encryptor.MD5Hash(model.NewPassword);
+            db.SubmitChanges();
+            return RedirectToAction("Login");
+        }
         #endregion
         public bool SuaNhanVien(NHANVIEN model)
         {

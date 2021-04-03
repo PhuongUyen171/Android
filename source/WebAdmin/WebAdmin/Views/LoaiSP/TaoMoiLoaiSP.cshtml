@@ -16,9 +16,15 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="devit-card-custom">
+                            <!--Tên loại sản phẩm-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TenLoaiSP, new { htmlAttributes = new { @class = "form-control", @placeholder = "Group admin name" } })
-                                @Html.ValidationMessageFor(m =>m.TenLoaiSP, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.TenLoaiSP, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên loại sản phẩm" } })
+                                @Html.ValidationMessageFor(m => m.TenLoaiSP, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Hình ảnh-->
+                            <div class="form-group">
+                                <input type="file" name="HinhAnh" id="HinhAnh" class="form-control" />
+                                @Html.ValidationMessage("HinhAnh", new { @class = "text-danger" })
                             </div>
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
                             <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>

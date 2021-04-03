@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAdmin.Models;
+using WebAdmin.Common;
+using System.IO;
 
 namespace WebAdmin.Controllers
 {
@@ -58,21 +60,48 @@ namespace WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
+                //var file = Request.Files["Image"];
+                //var file = Request.Files["HinhAnh"];
+                //if (file == null)
+                //{
+                //    ModelState.AddModelError("HinhAnh", "Hình ảnh chưa được chọn");
+                //    return this.View();
+                //}
+                //else
+                //{
+                var file = Request.Files["HinhAnh"];
+                    //Mảng mở rộng
+                    string[] FileExtensions = new string[] { ".jpg", ".gif", ".png" };
+                    //Kiểm tra phần mở rộng
+                    if (!FileExtensions.Contains(file.FileName.Substring(file.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("HinhAnh", "Kiểu tập tin " + string.Join(",", FileExtensions) + " không cho phép!");
+                        return this.View();
+                    }
+                    else
+                    {
+                        string strSlug = MyString.str_slug(model.TenLoaiSP);
+                        String fileName = strSlug + file.FileName.Substring(file.FileName.LastIndexOf('.'));
+                        //Lưu vào CSDL
+                        model.HinhAnh = fileName;
+                        //Thiết lập đường dẫn trên server
+                        String Strpath = Path.Combine(Server.MapPath("~/Content/Images/LoaiSP/"), fileName);
+                    }
+                //}
                 if (CreateLoaiSP(model))
-                    TempData["SuccessMessage"] = "Tạo mới thông tin thành công";
+                    TempData["SuccessMessage"] = "Tạo mới loại sản phẩm thành công";
                 else
-                    TempData["DangerMessage"] = "Tạo mới thông tin thất bại";
+                    TempData["DangerMessage"] = "Tạo mới loại sản phẩm thất bại";
                 return RedirectToAction("Index");
-                
             }
             return this.View();
         }
         public ActionResult XoaLoaiSP(int id)
         {
             if (DeleteLoaiSP(id))
-                TempData["SuccessMessage"] = "Xóa thông tin thành công";
+                TempData["SuccessMessage"] = "Xóa loại sản phẩm thành công";
             else
-                TempData["DangerMessage"] = "Xóa thông tin thất bại";
+                TempData["DangerMessage"] = "Xóa loại sản phẩm thất bại";
             return RedirectToAction("Index");
         }
 
