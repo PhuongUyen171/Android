@@ -215,20 +215,31 @@ namespace WebAdmin.Controllers
             if (string.IsNullOrWhiteSpace(account))
                 return View("~/Views/Shared/404NotFound.cshtml");
             NHANVIEN nv = KiemTraKhoaChinh(account);
-            ResetPasswordModel model = new ResetPasswordModel();
-            model.Mail = nv.TaiKhoan;
-            return View(model);
+            if(nv != null)
+            {
+                ResetPasswordModel model = new ResetPasswordModel();
+                model.Mail = nv.TaiKhoan;
+                return View(model);
+            }
+            return this.View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetPasswordModel model)
         {
-            NHANVIEN resultReset = KiemTraKhoaChinh(model.Mail);
-            resultReset.MatKhau = Encryptor.MD5Hash(model.NewPassword);
-            db.SubmitChanges();
-            return RedirectToAction("Login");
+            if (ModelState.IsValid)
+            {
+                NHANVIEN resultReset = KiemTraKhoaChinh(model.Mail);
+                resultReset.MatKhau = Encryptor.MD5Hash(model.NewPassword);
+                db.SubmitChanges();
+                TempData["SuccessMessage"] = "Đặt lại mật khẩu thành công";
+                return RedirectToAction("Login");
+            }
+            return this.View();
         }
         #endregion
+
+        #region CRUD
         public bool SuaNhanVien(NHANVIEN model)
         {
             try
@@ -250,4 +261,5 @@ namespace WebAdmin.Controllers
             }
         }
     }
+    #endregion
 }
