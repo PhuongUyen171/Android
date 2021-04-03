@@ -24,6 +24,7 @@
                             </div>
                             <div class="form-group">
                                 Giá bán:
+                                @string.Format("{0:N0}",Model.GiaBan, new { @class = "form-control", @disabled = "disabled" })
                                 @Html.TextBoxFor(model => model.GiaBan, new { @class = "form-control", @disabled = "disabled" })
                             </div>
                             <div class="form-group">

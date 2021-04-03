@@ -71,8 +71,8 @@ INSERT INTO LOAISP VALUES(N'Dưỡng da','dm2.png')
 INSERT INTO LOAISP VALUES(N'Dưỡng thể','dm4.png')
 INSERT INTO LOAISP VALUES(N'Thực phẩm','dm1.png')
 
-INSERT INTO KHACHHANG VALUES(N'Xuân Nhật','xuannhat2352@gmail.com','123','0961122501',N'72 Dương Đức Hiền')
-INSERT INTO KHACHHANG VALUES(N'Phương Anh','phuonganh@gmail.com','123','0916272248',N'817 Lạc Long Quân')
+INSERT INTO KHACHHANG VALUES(N'Xuân Nhật','xuannhat2352@gmail.com','202cb962ac59075b964b07152d234b70','0961122501',N'72 Dương Đức Hiền')
+INSERT INTO KHACHHANG VALUES(N'Phương Anh','phuonganh@gmail.com','202cb962ac59075b964b07152d234b70','0916272248',N'817 Lạc Long Quân')
 
 INSERT INTO SANPHAM VALUES(N'Son môi MERZY',120,99000,80000,1,'sp1.jpg',1,N'Cùng Lam Thảo đón đầu xu hướng với sự quay lại mới toanh của Son Kem Lì Merzy Velvet Tint Season 3 sớm nhất Việt Nam, với toàn những tông màu hot trend nhất hiện nay sẵn sàng đốn tim các tình yêu từ cái nhìn đầu tiên<br/>
 Zoom thật kĩ từng màu cùng Lam Thảo với Merzy Velvet Tint Season 3, toàn những tông màu son hot trend nhất dễ dùng nhất hiện nay, giúp đôi môi nàng trở nên tươi tắn trẻ trung nhưng không kém phần quyến rũ đâu nha.<br/>Để có thể mạnh tay sở hữu em ấy đầu tiên thì như đã khẳng định bên trên, sự quay trở lại lần này của Merzy Velvet Tint Season 3 toàn những màu đỉnh cao hợp với mọi làn da của các bạn, giờ thì Lam Thảo sẽ "phân tích" từng em màu của em ấy nha.<br/>

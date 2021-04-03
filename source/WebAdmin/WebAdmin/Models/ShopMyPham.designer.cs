@@ -20,9 +20,9 @@ namespace WebAdmin.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MYPHAM")]
+    using System.ComponentModel.DataAnnotations;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MYPHAM")]
 	public partial class ShopMyPhamDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -1413,6 +1413,7 @@ namespace WebAdmin.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNV", DbType="NVarChar(MAX)")]
+		//[Required(AllowEmptyStrings = false, ErrorMessage = "Tên nhân viên không được để trống. ")]
 		public string TenNV
 		{
 			get

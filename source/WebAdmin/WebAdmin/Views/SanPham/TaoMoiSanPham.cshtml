@@ -17,27 +17,59 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="devit-card-custom">
+                            <!--Tên SP-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product name" } })
+                                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên sản phẩm" } })
                                 @Html.ValidationMessageFor(m => m.TenSP, "", new { @class = "text-danger" })
                             </div>
+                            <!--Loại SP-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product name" } })
-                                @Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control", @placeholder = "Product information" } })
+                                @Html.DropDownListFor(model => model.MaLoai, (SelectList)ViewBag.LoaiSP, "- Chọn loại sản phẩm -", new { @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
                             </div>
-                            <!--Quyền-->
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                            <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
-                            <div class="warning">
+                            <!--Số lượng-->
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số lượng tồn" } })
+                                @Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Giá bán-->
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá bán" } })
+                                @Html.ValidationMessageFor(m => m.GiaBan, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Giá vốn-->
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.GiaVon, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá vốn" } })
+                                @Html.ValidationMessageFor(m => m.GiaVon, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Đơn vị tính-->
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.DonViTinh, (SelectList)ViewBag.DVT, "- Chọn đơn vị tính -", new { @class = "form-control", @style = "padding-bottom: 10px;" })
+                                @Html.ValidationMessageFor(model => model.DonViTinh, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Mô tả-->
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control", @placeholder = "Thông tin mô tả" } })
+                                @Html.ValidationMessageFor(m => m.MoTa, "", new { @class = "text-danger" })
+                            </div>
+                            <!--Trạng thái-->
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.TrangThai, new[] { new SelectListItem { Text = "Đang bán", Value = "1" }, new SelectListItem { Text = "Không bán", Value = "0" } }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                            </div>
+                                <!--Hình ảnh-->
+                            <div class="form-group">
+                                <input type="file" name="HinhAnh" class="form-control" />
+                                @Html.ValidationMessage("HinhAnh", new { @class = "text-danger" })
+                            </div>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
+                                <div class="warning">
 
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "list-style-type:none;" })
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "list-style-type:none;" })
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

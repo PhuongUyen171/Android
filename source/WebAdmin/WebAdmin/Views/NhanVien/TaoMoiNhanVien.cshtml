@@ -17,17 +17,17 @@
                         <div class="devit-card-custom">
                             <!--Tài khoản-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control", @placeholder = "Employee account" } })
+                                @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tài khoản" } })
                                 @Html.ValidationMessageFor(m => m.TaiKhoan, "", new { @class = "text-danger" })
                             </div>
                             <!--Tên nhân viên-->
                             <div class="form-group">
-                                @Html.EditorFor(model => model.TenNV, new { htmlAttributes = new { @class = "form-control", @placeholder = "Employee name" } })
+                                @Html.EditorFor(model => model.TenNV, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên nhân viên" } })
                                 @Html.ValidationMessageFor(m => m.TenNV, "", new { @class = "text-danger" })
                             </div>
                             <!--Mật khẩu-->
                             <div class="form-group">
-                                @Html.PasswordFor(Model => Model.MatKhau, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.PasswordFor(Model => Model.MatKhau, new { @class = "form-control", @placeholder = "Mật khẩu" })
                                 @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
                             </div>
                             <!--Quyền-->

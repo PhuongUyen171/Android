@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\MyString.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiSPController.cs" />
@@ -131,8 +132,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Encryptor.cs" />
+    <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NHANVIEN.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\ShopMyPham.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -532,6 +535,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\hinh1.jpg" />
     <Content Include="Content\Images\LoaiSP\dm1.png" />
     <Content Include="Content\Images\LoaiSP\dm2.png" />
     <Content Include="Content\Images\LoaiSP\dm3.png" />
@@ -603,6 +607,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Shared\404NotFound.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -626,6 +631,7 @@
     <Content Include="Views\KhachHang\TaoMoiKhachHang.cshtml" />
     <Content Include="Views\KhachHang\SuaKhachHang.cshtml" />
     <Content Include="Views\KhachHang\ChiTietKhachHang.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
@@ -635,6 +641,7 @@
     <Content Include="Views\SanPham\TaoMoiSanPham.cshtml" />
     <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
     <Content Include="Views\SanPham\SuaSanPham.cshtml" />
+    <Content Include="Views\Login\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
