@@ -5,16 +5,30 @@
 }
 
 @model IEnumerable<WebAdmin.Models.NHANVIEN>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            console.log("key up");
+            var value = $(this).val().toLowerCase();
+            $("#tableNV tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
-
             <h5 class="card-header">
                 <font style="font-size:25px">QUẢN LÝ NHÂN VIÊN</font>
                 <a href="@Url.Action("TaoMoiNhanVien")" class="btn btn-primary waves-effect waves-light" style="float:right">Tạo mới</a>
             </h5>
             <div class="card-body">
                 <div class="table-responsive">
+                    <div id="custom-search" class="top-search-bar" style="padding-bottom:10px;">
+                        <input class="form-control" type="text" id="searchInput" placeholder="Nhập tên nhân viên ...">
+                    </div>
                     <table class="table table-striped table-bordered first">
                         <thead>
                             <tr>
@@ -24,7 +38,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tableNV">
                             @foreach (var item in Model)
                             {
                                 <tr>

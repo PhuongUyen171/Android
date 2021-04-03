@@ -5,6 +5,18 @@
 }
 
 @model IEnumerable<WebAdmin.Models.SANPHAM>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            console.log("key up");
+            var value = $(this).val().toLowerCase();
+            $("#tableSP tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
@@ -15,6 +27,9 @@
             </h5>
             <div class="card-body">
                 <div class="table-responsive">
+                    <div id="custom-search" class="top-search-bar" style="padding-bottom:10px;">
+                        <input class="form-control" type="text" id="searchInput" placeholder="Nhập tên sản phẩm ...">
+                    </div>
                     <table class="table table-striped table-bordered first">
                         <thead>
                             <tr>
@@ -25,13 +40,13 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tableSP">
                             @foreach (var item in Model)
                             {
                                 <tr>
                                     <td>@item.MaSP</td>
                                     <td>@item.TenSP</td>
-                                    <td><img src="~/Content/Images/SanPham/@item.HinhAnh" height="100"/></td>
+                                    <td><img src="~/Content/Images/SanPham/@item.HinhAnh" height="100" /></td>
                                     <td>
                                         @if (item.TrangThai == true)
                                         {

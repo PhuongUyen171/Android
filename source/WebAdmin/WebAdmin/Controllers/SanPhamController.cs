@@ -34,7 +34,7 @@ namespace WebAdmin.Controllers
                 {
                     nv.TrangThai = !nv.TrangThai;
                     db.SubmitChanges();
-                    TempData["SuccessMessage"] = "Đổi quyền truy cập nhân viên thành công.";
+                    TempData["SuccessMessage"] = "Đổi trạng thái sản phẩm thành công.";
                 }
                 else
                     TempData["DangerMessage"] = "Có lỗi xảy ra";
