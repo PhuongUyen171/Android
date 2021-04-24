@@ -42,7 +42,7 @@
                             {
                                 <tr>
                                     <td>@item.MaLoaiSP</td>
-                                    <td>@item.TenLoaiSP</td>
+                                    <td><a href="@Url.Action("ChiTietLoaiSP",new { id=item.MaLoaiSP})" style="text-decoration:none;">@item.TenLoaiSP</a></td>
                                     <td><img src="~/Content/Images/LoaiSP/@item.HinhAnh" /></td>
                                     <td>
                                         <a href="@Url.Action("SuaLoaiSP",new { id=item.MaLoaiSP})" class="btn btn-success">Edit</a>
@@ -51,7 +51,7 @@
                                     </td>
                                 </tr>
                             }
-
+                        </tbody>
                     </table>
                 </div>
             </div>

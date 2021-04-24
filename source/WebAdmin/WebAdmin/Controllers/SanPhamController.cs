@@ -240,6 +240,10 @@ namespace WebAdmin.Controllers
                 return false;
             }
         }
+        public List<SANPHAM> GetSanPhamByMaSP(int ma) 
+        {
+            return db.SANPHAMs.Where(t => t.MaLoai == ma).ToList();
+        }
         #endregion
     }
 }

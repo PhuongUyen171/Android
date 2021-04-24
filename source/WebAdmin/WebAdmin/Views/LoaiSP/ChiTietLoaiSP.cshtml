@@ -3,10 +3,29 @@
     ViewBag.Title = "Thông tin chi tiết loại sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    #popUp {
+        height: 100px;
+        width: 100px;
+        display: none;
+        background-color: brown;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $("#ShowListProducts").click(function () {
+        $("#main").hide();
+        $("#popUp").show();
+        console.log('done');
+    });
+</script>
+<div id="popUp">
+    HELLO WORLD
+</div>
+<div id="main">
+    <h2>CHI TIẾT LOẠI SẢN PHẨM</h2>
 
-<h2>CHI TIẾT LOẠI SẢN PHẨM</h2>
-
-<div>
     <hr />
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,11 +42,12 @@
                                 @Html.TextBoxFor(model => model.TenLoaiSP, new { @class = "form-control", @disabled = "disabled" })
                             </div>
                             <div class="form-group">
-                                Hình ảnh:<br/>
+                                Hình ảnh:<br />
                                 <img src="~/Content/Images/LoaiSP/@Model.HinhAnh" />
                             </div>
                             <a href="@Url.Action("SuaLoaiSP", new { id=Model.MaLoaiSP})" class="btn btn-primary waves-effect waves-light">Edit</a>
                             <a href="@Url.Action("Index")" class="btn btn-primary waves-effect waves-light">Back to List</a>
+                            <button id="ShowListProducts" class="btn btn-primary waves-effect waves-light">Show list products</button>
                         </div>
                     </div>
                 </div>
